@@ -105,6 +105,7 @@ public abstract class GameControllerTemplate {
 
 
                 nextToMove = nextToMove.getOpponent();
+                selectedPiece = null;
             }
             */
         }
