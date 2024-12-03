@@ -1,11 +1,9 @@
 package h04.chesspieces;
 
 import fopbot.Robot;
-//Wichtig für Implementation
-//import h04.movement.MoveStrategy;
+import h04.movement.MoveStrategy;
 
 import java.awt.Point;
-
 
 public class Bishop extends Robot {
 
@@ -16,9 +14,19 @@ public class Bishop extends Robot {
         this.team = team;
     }
 
-    //Wichtig für Implementation
-    //@Override
-    public Team getTeam() { return team;}
+    @Override
+    public Team getTeam() { return team; }
+    @Override
+    public void moveStrategy(final int dx, final int dy, final MoveStrategy strategy) {
+        strategy.move(this, dx, dy);
+    }
+    @Override
+    public Point[] getPossibleMoveFields(){
+        return getDiagonalMoves();
+    }
 
-    //TODO H4.5
+    public Point[] getDiagonalMoves() {
+        // Implementation of getDiagonalMoves
+        return new Point[0];
+    }
 }

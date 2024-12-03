@@ -13,6 +13,15 @@ public class GameController extends GameControllerTemplate {
     @Override
     public boolean checkWinCondition() {
         //TODO H4.1
+        // calls the king
+        final King[] kings = ChessUtils.getKings();
+        // checks if the king is in checkmate
+        for (King king : kings){
+            if(king.isTurnedOff()){
+                return true;
+            }
+        }
+        // returns false if the king is not in checkmate
         return false;
     }
 }

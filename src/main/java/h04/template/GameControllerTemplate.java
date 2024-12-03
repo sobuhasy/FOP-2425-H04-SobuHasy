@@ -4,7 +4,6 @@ import fopbot.ColorProfile;
 import fopbot.Robot;
 import fopbot.World;
 import h04.GameController;
-import h04.template.InputHandler;
 import h04.chesspieces.Bishop;
 import h04.chesspieces.ChessPiece;
 import h04.chesspieces.King;
@@ -14,11 +13,11 @@ import h04.chesspieces.Queen;
 import h04.chesspieces.Rook;
 import h04.chesspieces.Team;
 //Wichtig für Implementation
-//import h04.movement.MoveStrategy;
+import h04.movement.MoveStrategy;
 //Wichtig für Implementation
-//import h04.movement.TeleportingMoveStrategy;
+import h04.movement.TeleportingMoveStrategy;
 //Wichtig für Implementation
-//import h04.movement.WalkingMoveStrategy;
+import h04.movement.WalkingMoveStrategy;
 import org.jetbrains.annotations.Nullable;
 import org.tudalgo.algoutils.student.io.PropertyUtils;
 
@@ -46,12 +45,11 @@ public abstract class GameControllerTemplate {
     protected @Nullable ChessPiece selectedPiece;
 
     //Wichtig für Implementation
-    /*
     protected MoveStrategy moveStrategy = PropertyUtils.getBooleanProperty(
         "h04.properties",
         "USE_TELEPORT_MOVE_STRATEGY"
     ) ? new TeleportingMoveStrategy() : new WalkingMoveStrategy();
-    */
+
 
     /**
      * Starts the game loop.
@@ -63,7 +61,7 @@ public abstract class GameControllerTemplate {
             final var point = inputHandler.getNextInput(nextToMove);
 
             //Wichtig für Implementation
-            /*
+
             if (ChessUtils.getTeamAt(point) == nextToMove) {
                 // select piece
                 selectedPiece = ChessUtils.getPieceAt(point);
@@ -88,7 +86,7 @@ public abstract class GameControllerTemplate {
                 }
                 // valid move selected, move piece
                 final var oldPiece = ChessUtils.getPieceAt(point);
-                selectedPiece.moveStrategy(
+                selectedPiece.move(
                     point.x - selectedPiece.getX(),
                     point.y - selectedPiece.getY(),
                     moveStrategy
@@ -107,7 +105,7 @@ public abstract class GameControllerTemplate {
                 nextToMove = nextToMove.getOpponent();
                 selectedPiece = null;
             }
-            */
+
         }
     }
 

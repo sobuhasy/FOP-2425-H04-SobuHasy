@@ -1,6 +1,6 @@
 package h04.chesspieces;
 //Wichtig für Implementation
-//import h04.movement.MoveStrategy;
+import h04.movement.MoveStrategy;
 
 import java.awt.Point;
 
@@ -17,4 +17,7 @@ public interface ChessPiece {
     void turnOff();
 
     //TODO H4.3
+    // new methods
+    void move(int dx, int dy, MoveStrategy strategy);
+    Point[] getPossibleMoveFields();
 }

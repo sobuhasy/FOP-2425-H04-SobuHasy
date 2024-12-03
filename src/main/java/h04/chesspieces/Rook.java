@@ -1,13 +1,13 @@
 package h04.chesspieces;
 
 import fopbot.Robot;
-//Wichtig für Implementation
-//import h04.movement.MoveStrategy;
+import h04.movement.MoveStrategy;
+import h04.movement.OrthogonalMover;
 import h04.template.ChessUtils;
 
 import java.awt.Point;
 
-public class Rook extends Robot {
+public class Rook extends Robot implements OrthogonalMover{
     private final Team team;
 
     public Rook(final int x, final int y, final Team team){
@@ -15,11 +15,21 @@ public class Rook extends Robot {
         this.team = team;
     }
 
-    //Wichtig für Implementation
-    //@Override
     public Team getTeam() {
         return team;
     }
 
-    //TODO H4.5
+    public void move(final int dx, final int dy, final MoveStrategy strategy) {
+        strategy.move(this, dx, dy);
+    }
+
+    public Point[] getPossibleMoveFields(){
+        return getOrthogonalMoves();
+    }
+
+    public Point[] getOrthogonalMoves() {
+        // Implementation of getOrthogonalMoves
+        // This is a placeholder implementation
+        return new Point[0];
+    }
 }

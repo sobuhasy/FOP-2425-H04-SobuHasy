@@ -1,8 +1,7 @@
 package h04.chesspieces;
 
 import fopbot.Robot;
-//Wichtig für Implementation
-//import h04.movement.MoveStrategy;
+import h04.movement.MoveStrategy;
 import h04.template.ChessUtils;
 
 import java.awt.Point;
@@ -21,14 +20,12 @@ public class Knight extends Robot implements ChessPiece {
         return team;
     }
 
-    //Wichtig für Implementation
-    /*
     @Override
-    public void moveStrategy(final int dx, final int dy, final MoveStrategy strategy) {
+    public void move(final int dx, final int dy, final MoveStrategy strategy) {
         strategy.move(this, dx, dy);
     }
+
     @Override
-    */
     public Point[] getPossibleMoveFields() {
         final Point[] possibleMoves = new Point[8];
         int index = 0;
